@@ -14,8 +14,9 @@ public class DemoApplication {
 		return  "hello world";
 	}
 
+	@GetMapping("/hello")
 	public String testCICD () {
-		return "abc";
+		return "thong dep trai qua";
 	}
 
 	public static void main(String[] args) {
