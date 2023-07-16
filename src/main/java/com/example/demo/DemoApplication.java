@@ -14,6 +14,10 @@ public class DemoApplication {
 		return  "hello world";
 	}
 
+	public String testCICD () {
+		return "abc";
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}

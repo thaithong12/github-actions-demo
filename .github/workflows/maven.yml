@@ -27,11 +27,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Build with Maven
+      - name: Clean Build with Maven
         run: mvn clean
       - name: Build with Maven
         run: mvn install
 
+      # Set up , login , build , deploy DockerHub
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -46,19 +47,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Build and push
-#        uses: docker/build-push-action@v4
-#        with:
-#          push: true
-#          tags: thongnt0712/springboot-images-new:latest
         run: |
           docker build -t thongnt0712/springboot-images-new:latest .
           docker push thongnt0712/springboot-images-new:latest
-#      - uses: mr-smithers-excellent/docker-build-push@v5
-#        name: Build & push Docker image
-#        with:
-#          image: repo/springboot-images-new
-#          tags: latest
-#          registry: docker.io
-#          dockerfile: Dockerfile
-#          username: ${{ secrets.DOCKER_USERNAME }}
-#          password: ${{ secrets.DOCKER_PASSWORD }}
