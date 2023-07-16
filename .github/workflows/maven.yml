@@ -46,10 +46,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: thongnt0712/springboot-images-new:latest
+#        uses: docker/build-push-action@v4
+#        with:
+#          push: true
+#          tags: thongnt0712/springboot-images-new:latest
+        run: |
+          docker build -t thongnt0712/springboot-images-new:latest .
+          docker push thongnt0712/springboot-images-new:latest
 #      - uses: mr-smithers-excellent/docker-build-push@v5
 #        name: Build & push Docker image
 #        with:
